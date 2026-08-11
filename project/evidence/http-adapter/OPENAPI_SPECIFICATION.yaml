@@ -1,0 +1,402 @@
+openapi: 3.0.3
+info:
+  title: GHOSTWEAVE HTTP Adapter API
+  description: REST API for GHOSTWEAVE Core — Trust Layer for AI Systems
+  version: 1.0.0
+  contact:
+    name: GHOSTWEAVE Team
+  license:
+    name: MIT
+
+servers:
+  - url: http://localhost:3311
+    description: Local development server
+
+tags:
+  - name: Chain
+    description: Chain management operations
+  - name: Events
+    description: Event operations
+  - name: Verify
+    description: Chain verification
+  - name: Replay
+    description: Evidence replay
+  - name: Export
+    description: Chain export
+  - name: Health
+    description: Health checks
+
+paths:
+  /health:
+    get:
+      tags: [Health]
+      summary: Health check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+  /api/chain/status:
+    get:
+      tags: [Chain]
+      summary: Get chain status
+      responses:
+        '200':
+          description: Chain status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChainStatusResponse'
+
+  /api/chain/events:
+    get:
+      tags: [Chain]
+      summary: Get all events
+      parameters:
+        - name: from
+          in: query
+          schema:
+            type: string
+          description: Event ID to start from
+        - name: to
+          in: query
+          schema:
+            type: string
+          description: Event ID to end at
+      responses:
+        '200':
+          description: List of events
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventListResponse'
+
+  /api/chain/events/{id}:
+    get:
+      tags: [Chain]
+      summary: Get event by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Event found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventResponse'
+        '404':
+          description: Event not found
+
+  /api/chain/clear:
+    delete:
+      tags: [Chain]
+      summary: Clear chain
+      parameters:
+        - name: confirm
+          in: query
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Chain cleared
+        '400':
+          description: Confirmation required
+
+  /api/chain/health:
+    get:
+      tags: [Chain]
+      summary: Chain health
+      responses:
+        '200':
+          description: Chain health status
+
+  /api/events/genesis:
+    post:
+      tags: [Events]
+      summary: Create genesis event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenesisRequest'
+      responses:
+        '201':
+          description: Genesis created
+        '400':
+          description: Chain not empty or invalid request
+
+  /api/events:
+    post:
+      tags: [Events]
+      summary: Append event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppendEventRequest'
+      responses:
+        '201':
+          description: Event appended
+        '400':
+          description: Invalid request
+
+  /api/events/batch:
+    post:
+      tags: [Events]
+      summary: Batch append events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchAppendRequest'
+      responses:
+        '201':
+          description: Events appended
+        '400':
+          description: Invalid request
+
+  /api/verify:
+    post:
+      tags: [Verify]
+      summary: Verify chain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyRequest'
+      responses:
+        '200':
+          description: Chain is valid
+        '206':
+          description: Chain is partially valid
+        '422':
+          description: Chain is invalid
+
+  /api/verify/status:
+    get:
+      tags: [Verify]
+      summary: Get verification status
+      responses:
+        '200':
+          description: Verification status
+
+  /api/replay:
+    post:
+      tags: [Replay]
+      summary: Replay evidence chain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReplayRequest'
+      responses:
+        '200':
+          description: Replay successful
+        '206':
+          description: Replay partial
+        '422':
+          description: Replay failed
+
+  /api/replay/evidence:
+    get:
+      tags: [Replay]
+      summary: Get evidence summary
+      responses:
+        '200':
+          description: Evidence summary
+
+  /api/export:
+    post:
+      tags: [Export]
+      summary: Export chain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportRequest'
+      responses:
+        '200':
+          description: Export successful
+
+  /api/export/download:
+    get:
+      tags: [Export]
+      summary: Download exported chain
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [json, canonical]
+      responses:
+        '200':
+          description: Export file
+          content:
+            application/json: {}
+        '400':
+          description: Chain empty
+
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [ok, degraded, offline]
+        timestamp:
+          type: string
+          format: date-time
+        version:
+          type: string
+        protocol:
+          type: string
+        profile:
+          type: string
+        eventCount:
+          type: integer
+
+    ChainStatusResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            length:
+              type: integer
+            lastEvent:
+              type: object
+            genesisId:
+              type: string
+            lastHash:
+              type: string
+        timestamp:
+          type: string
+          format: date-time
+
+    EventListResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          properties:
+            events:
+              type: array
+              items:
+                type: object
+            count:
+              type: integer
+            total:
+              type: integer
+        timestamp:
+          type: string
+          format: date-time
+
+    EventResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+        timestamp:
+          type: string
+          format: date-time
+
+    GenesisRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          default: genesis
+        source:
+          type: string
+          default: http-adapter
+        payload:
+          type: object
+        metadata:
+          type: object
+
+    AppendEventRequest:
+      type: object
+      required:
+        - type
+        - source
+      properties:
+        type:
+          type: string
+        source:
+          type: string
+        payload:
+          type: object
+        metadata:
+          type: object
+        previousHash:
+          type: string
+
+    BatchAppendRequest:
+      type: object
+      required:
+        - events
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/AppendEventRequest'
+
+    VerifyRequest:
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        checkHashes:
+          type: boolean
+          default: true
+        checkContinuity:
+          type: boolean
+          default: true
+        checkGenesis:
+          type: boolean
+          default: true
+
+    ReplayRequest:
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        verifyHashes:
+          type: boolean
+          default: true
+        skipInvalid:
+          type: boolean
+          default: false
+
+    ExportRequest:
+      type: object
+      properties:
+        format:
+          type: string
+          enum: [json, canonical]
+          default: json
+        includeMetadata:
+          type: boolean
+          default: false

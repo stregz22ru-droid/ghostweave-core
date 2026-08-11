@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "name": "ghostweave-repo",
+  "created_at": "2026-06-28T13:03:21.052Z",
+  "core": {
+    "schema_version": "1.0",
+    "identity_provider": "file",
+    "anchor_provider": "file"
+  },
+  "storage": {
+    "events": "events.jsonl",
+    "snapshots_dir": "snapshots",
+    "export_dir": "export"
+  }
+}

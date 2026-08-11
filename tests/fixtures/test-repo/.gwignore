@@ -1,0 +1,6 @@
+# Ghostweave ignore patterns
+node_modules/
+.git/
+*.log
+*.tmp
+*.backup

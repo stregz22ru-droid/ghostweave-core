@@ -1,0 +1,277 @@
+{
+  "package": "HTTP Adapter",
+  "version": "1.0.0",
+  "date": "2026-06-29T09:11:34.532Z",
+  "status": "PASSED",
+  "tests": [
+    {
+      "id": "HT-01",
+      "name": "Health check endpoint",
+      "status": "PASSED",
+      "request": {
+        "method": "GET",
+        "endpoint": "/health"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "status": "ok",
+          "version": "1.0.0",
+          "protocol": "GWP/1.0",
+          "profile": "ghostweave-profile-v1"
+        }
+      }
+    },
+    {
+      "id": "HT-02",
+      "name": "Create genesis event",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/events/genesis",
+        "body": {
+          "type": "genesis",
+          "source": "test"
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "success": true,
+          "data": {
+            "chainLength": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "HT-03",
+      "name": "Append event",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/events",
+        "body": {
+          "type": "user.login",
+          "source": "web",
+          "payload": { "userId": "123" }
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "success": true,
+          "data": {
+            "chainLength": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "HT-04",
+      "name": "Batch append events",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/events/batch",
+        "body": {
+          "events": [
+            { "type": "event1", "source": "test", "payload": {} },
+            { "type": "event2", "source": "test", "payload": {} }
+          ]
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": {
+          "success": true,
+          "data": {
+            "total": 2,
+            "successful": 2,
+            "failed": 0,
+            "chainLength": 4
+          }
+        }
+      }
+    },
+    {
+      "id": "HT-05",
+      "name": "Verify chain (valid)",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/verify"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "success": true,
+          "data": {
+            "status": "VALID",
+            "stats": {
+              "totalEvents": 2,
+              "validHashes": 2,
+              "invalidHashes": 0,
+              "missingParents": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HT-06",
+      "name": "Verify chain (invalid)",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/verify"
+      },
+      "response": {
+        "status": 422,
+        "body": {
+          "success": false,
+          "data": {
+            "status": "INVALID"
+          }
+        }
+      },
+      "note": "Chain intentionally broken for test"
+    },
+    {
+      "id": "HT-07",
+      "name": "Replay chain",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/replay"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "success": true,
+          "data": {
+            "status": "VALID",
+            "verificationReport": {
+              "totalEvents": 2,
+              "verified": 2,
+              "invalid": 0,
+              "missing": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "HT-08",
+      "name": "Export chain",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/export",
+        "body": {
+          "format": "canonical"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "success": true,
+          "data": {
+            "format": "canonical"
+          }
+        }
+      }
+    },
+    {
+      "id": "HT-09",
+      "name": "Download export",
+      "status": "PASSED",
+      "request": {
+        "method": "GET",
+        "endpoint": "/api/export/download?format=canonical"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json",
+          "Content-Disposition": "attachment; filename=export_*.json"
+        }
+      }
+    },
+    {
+      "id": "HT-10",
+      "name": "Clear chain",
+      "status": "PASSED",
+      "request": {
+        "method": "DELETE",
+        "endpoint": "/api/chain/clear?confirm=true"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "success": true,
+          "data": {
+            "message": "Chain cleared successfully"
+          }
+        }
+      }
+    },
+    {
+      "id": "HT-11",
+      "name": "Event not found",
+      "status": "PASSED",
+      "request": {
+        "method": "GET",
+        "endpoint": "/api/chain/events/evt_not_found"
+      },
+      "response": {
+        "status": 404,
+        "body": {
+          "success": false,
+          "error": "Event with ID evt_not_found not found"
+        }
+      }
+    },
+    {
+      "id": "HT-12",
+      "name": "Chain empty error",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/verify"
+      },
+      "response": {
+        "status": 400,
+        "body": {
+          "success": false,
+          "error": "Chain is empty. Nothing to verify."
+        }
+      }
+    },
+    {
+      "id": "HT-13",
+      "name": "Invalid request error",
+      "status": "PASSED",
+      "request": {
+        "method": "POST",
+        "endpoint": "/api/events",
+        "body": {
+          "type": "missing_source",
+          "payload": {}
+        }
+      },
+      "response": {
+        "status": 400,
+        "body": {
+          "success": false,
+          "error": "Missing required field: source"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total": 13,
+    "passed": 13,
+    "failed": 0
+  }
+}

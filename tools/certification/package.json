@@ -1,0 +1,31 @@
+{
+  "name": "@ghostweave/certification-kit",
+  "version": "1.0.0",
+  "description": "GHOSTWEAVE Certification Kit — эталон соответствия Protocol",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/index.js",
+    "certify": "npm run build && npm run test",
+    "clean": "rm -rf dist reports/*.md"
+  },
+  "keywords": [
+    "ghostweave",
+    "certification",
+    "testing",
+    "compliance"
+  ],
+  "author": "GHOSTWEAVE Team",
+  "license": "MIT",
+  "dependencies": {
+    "@ghostweave/core-sdk": "file:../sdk"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

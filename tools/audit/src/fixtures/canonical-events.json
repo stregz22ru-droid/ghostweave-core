@@ -1,0 +1,366 @@
+{
+  "version": "1.0",
+  "profile": "ghostweave-profile-v1",
+  "generatedAt": "2026-06-28T15:45:00.000Z",
+  "description": "Canonical Events Test Fixture for Cross-Implementation Consistency Test",
+  "genesisHash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "eventCount": 100,
+  "events": [
+    {
+      "id": "evt_1000000000000_000001",
+      "timestamp": 1700000000000,
+      "type": "fixture.genesis",
+      "source": "fixture-generator",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "payload": {
+        "message": "Genesis event for test fixture",
+        "test": "canonical-consistency"
+      },
+      "metadata": {
+        "fixture": true,
+        "version": "1.0"
+      },
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "id": "evt_1000000000001_000002",
+      "timestamp": 1700000001000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "payload": {
+        "index": 1,
+        "message": "Test event #1",
+        "data": "Lorem ipsum dolor sit amet"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 1
+      },
+      "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    {
+      "id": "evt_1000000000002_000003",
+      "timestamp": 1700000002000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "payload": {
+        "index": 2,
+        "message": "Test event #2",
+        "data": "Consectetur adipiscing elit"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 1
+      },
+      "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    },
+    {
+      "id": "evt_1000000000003_000004",
+      "timestamp": 1700000003000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "payload": {
+        "index": 3,
+        "message": "Test event #3",
+        "data": "Sed do eiusmod tempor incididunt"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 1
+      },
+      "hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    },
+    {
+      "id": "evt_1000000000004_000005",
+      "timestamp": 1700000004000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "payload": {
+        "index": 4,
+        "message": "Test event #4",
+        "data": "Ut labore et dolore magna aliqua"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 1
+      },
+      "hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    },
+    {
+      "id": "evt_1000000000005_000006",
+      "timestamp": 1700000005000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "payload": {
+        "index": 5,
+        "message": "Test event #5",
+        "data": "Ut enim ad minim veniam"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 2
+      },
+      "hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "id": "evt_1000000000006_000007",
+      "timestamp": 1700000006000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "payload": {
+        "index": 6,
+        "message": "Test event #6",
+        "data": "Quis nostrud exercitation ullamco"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 2
+      },
+      "hash": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "id": "evt_1000000000007_000008",
+      "timestamp": 1700000007000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "payload": {
+        "index": 7,
+        "message": "Test event #7",
+        "data": "Laboris nisi ut aliquip ex ea commodo"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 2
+      },
+      "hash": "2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    {
+      "id": "evt_1000000000008_000009",
+      "timestamp": 1700000008000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+      "payload": {
+        "index": 8,
+        "message": "Test event #8",
+        "data": "Duis aute irure dolor in reprehenderit"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 2
+      },
+      "hash": "3333333333333333333333333333333333333333333333333333333333333333"
+    },
+    {
+      "id": "evt_1000000000009_000010",
+      "timestamp": 1700000009000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+      "payload": {
+        "index": 9,
+        "message": "Test event #9",
+        "data": "In voluptate velit esse cillum dolore"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 3
+      },
+      "hash": "4444444444444444444444444444444444444444444444444444444444444444"
+    },
+    {
+      "id": "evt_1000000000010_000011",
+      "timestamp": 1700000010000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+      "payload": {
+        "index": 10,
+        "message": "Test event #10",
+        "data": "Eu fugiat nulla pariatur"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 3
+      },
+      "hash": "5555555555555555555555555555555555555555555555555555555555555555"
+    },
+    {
+      "id": "evt_1000000000011_000012",
+      "timestamp": 1700000011000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "5555555555555555555555555555555555555555555555555555555555555555",
+      "payload": {
+        "index": 11,
+        "message": "Test event #11",
+        "data": "Excepteur sint occaecat cupidatat non proident"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 3
+      },
+      "hash": "6666666666666666666666666666666666666666666666666666666666666666"
+    },
+    {
+      "id": "evt_1000000000012_000013",
+      "timestamp": 1700000012000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "6666666666666666666666666666666666666666666666666666666666666666",
+      "payload": {
+        "index": 12,
+        "message": "Test event #12",
+        "data": "Sunt in culpa qui officia deserunt"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 3
+      },
+      "hash": "7777777777777777777777777777777777777777777777777777777777777777"
+    },
+    {
+      "id": "evt_1000000000013_000014",
+      "timestamp": 1700000013000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "7777777777777777777777777777777777777777777777777777777777777777",
+      "payload": {
+        "index": 13,
+        "message": "Test event #13",
+        "data": "Mollit anim id est laborum"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 4
+      },
+      "hash": "8888888888888888888888888888888888888888888888888888888888888888"
+    },
+    {
+      "id": "evt_1000000000014_000015",
+      "timestamp": 1700000014000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "8888888888888888888888888888888888888888888888888888888888888888",
+      "payload": {
+        "index": 14,
+        "message": "Test event #14",
+        "data": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 4
+      },
+      "hash": "9999999999999999999999999999999999999999999999999999999999999999"
+    },
+    {
+      "id": "evt_1000000000015_000016",
+      "timestamp": 1700000015000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "9999999999999999999999999999999999999999999999999999999999999999",
+      "payload": {
+        "index": 15,
+        "message": "Test event #15",
+        "data": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 4
+      },
+      "hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
+    },
+    {
+      "id": "evt_1000000000016_000017",
+      "timestamp": 1700000016000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
+      "payload": {
+        "index": 16,
+        "message": "Test event #16",
+        "data": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 4
+      },
+      "hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbc"
+    },
+    {
+      "id": "evt_1000000000017_000018",
+      "timestamp": 1700000017000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbc",
+      "payload": {
+        "index": 17,
+        "message": "Test event #17",
+        "data": "Nisi ut aliquip ex ea commodo consequat"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 5
+      },
+      "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccd"
+    },
+    {
+      "id": "evt_1000000000018_000019",
+      "timestamp": 1700000018000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccd",
+      "payload": {
+        "index": 18,
+        "message": "Test event #18",
+        "data": "Duis aute irure dolor in reprehenderit in voluptate velit esse"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 5
+      },
+      "hash": "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddde"
+    },
+    {
+      "id": "evt_1000000000019_000020",
+      "timestamp": 1700000019000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddde",
+      "payload": {
+        "index": 19,
+        "message": "Test event #19",
+        "data": "Cillum dolore eu fugiat nulla pariatur"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 5
+      },
+      "hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef"
+    },
+    {
+      "id": "evt_1000000000020_000021",
+      "timestamp": 1700000020000,
+      "type": "fixture.test",
+      "source": "fixture-generator",
+      "previous_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
+      "payload": {
+        "index": 20,
+        "message": "Test event #20",
+        "data": "Excepteur sint occaecat cupidatat non proident, sunt in culpa"
+      },
+      "metadata": {
+        "fixture": true,
+        "batch": 5
+      },
+      "hash": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0"
+    }
+  ]
+}

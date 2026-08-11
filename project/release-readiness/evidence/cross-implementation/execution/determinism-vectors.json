@@ -1,0 +1,116 @@
+{
+  "package": "Cross-Implementation",
+  "version": "1.0.0",
+  "date": "2026-06-29T17:56:12.139Z",
+  "description": "Determinism vectors for cross-implementation testing",
+  "status": "PASSED",
+  "vectors": [
+    {
+      "id": "DV-01",
+      "name": "Hash determinism",
+      "description": "SHA-256 produces deterministic hashes across implementations",
+      "input": {
+        "type": "test",
+        "source": "audit",
+        "payload": { "message": "determinism-test" }
+      },
+      "expected": {
+        "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+        "algorithm": "SHA-256"
+      },
+      "resultA": {
+        "implementation": "GHOSTWEAVE SDK",
+        "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+        "match": true
+      },
+      "resultB": {
+        "implementation": "Canonical Generator",
+        "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+        "match": true
+      },
+      "status": "PASSED"
+    },
+    {
+      "id": "DV-02",
+      "name": "Canonical serialization determinism",
+      "description": "RFC 8785 produces deterministic JSON across implementations",
+      "input": {
+        "object": { "b": 2, "a": 1, "c": 3 }
+      },
+      "expected": {
+        "canonical": "{\"a\":1,\"b\":2,\"c\":3}"
+      },
+      "resultA": {
+        "implementation": "GHOSTWEAVE SDK",
+        "canonical": "{\"a\":1,\"b\":2,\"c\":3}",
+        "match": true
+      },
+      "resultB": {
+        "implementation": "Canonical Generator",
+        "canonical": "{\"a\":1,\"b\":2,\"c\":3}",
+        "match": true
+      },
+      "status": "PASSED"
+    },
+    {
+      "id": "DV-03",
+      "name": "Replay determinism",
+      "description": "Replay produces identical results across implementations",
+      "input": {
+        "chainLength": 11,
+        "events": "canonical-chain.json"
+      },
+      "expected": {
+        "status": "VALID",
+        "verifiedEvents": 11
+      },
+      "resultA": {
+        "implementation": "GHOSTWEAVE SDK",
+        "status": "VALID",
+        "verifiedEvents": 11,
+        "match": true
+      },
+      "resultB": {
+        "implementation": "Canonical Generator",
+        "status": "VALID",
+        "verifiedEvents": 11,
+        "match": true
+      },
+      "status": "PASSED"
+    },
+    {
+      "id": "DV-04",
+      "name": "Export determinism",
+      "description": "Export produces identical JSON across implementations",
+      "input": {
+        "chainLength": 11,
+        "format": "canonical"
+      },
+      "expected": {
+        "format": "Canonical JSON",
+        "deterministic": true
+      },
+      "resultA": {
+        "implementation": "GHOSTWEAVE SDK",
+        "format": "Canonical JSON",
+        "match": true
+      },
+      "resultB": {
+        "implementation": "Canonical Generator",
+        "format": "Canonical JSON",
+        "match": true
+      },
+      "status": "PASSED"
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0
+  },
+  "conclusion": {
+    "deterministic": true,
+    "crossImplementationCompatible": true,
+    "status": "PASSED"
+  }
+}

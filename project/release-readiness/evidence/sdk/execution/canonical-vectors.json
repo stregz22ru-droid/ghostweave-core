@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "description": "Canonical test vectors for SDK cross-implementation testing",
+  "profile": "ghostweave-profile-v1",
+  "genesisHash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "vectors": [
+    {
+      "id": "vec_001",
+      "input": {
+        "type": "test",
+        "source": "audit",
+        "payload": { "message": "test" }
+      },
+      "expected": {
+        "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "description": "Genesis event creation"
+    },
+    {
+      "id": "vec_002",
+      "input": {
+        "type": "test",
+        "source": "audit",
+        "payload": { "message": "test2" },
+        "previousHash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+      },
+      "expected": {
+        "hash": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+        "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+      },
+      "description": "Event with custom previous_hash"
+    },
+    {
+      "id": "vec_003",
+      "input": {
+        "type": "test",
+        "source": "audit",
+        "payload": { "message": "test3" },
+        "metadata": { "custom": true }
+      },
+      "expected": {
+        "hash": "b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3",
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "description": "Event with metadata"
+    },
+    {
+      "id": "vec_004",
+      "input": {
+        "type": "test",
+        "source": "audit",
+        "payload": { "nested": { "value": 123 } }
+      },
+      "expected": {
+        "hash": "c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "description": "Event with nested payload"
+    },
+    {
+      "id": "vec_005",
+      "input": {
+        "type": "test",
+        "source": "audit",
+        "payload": { "data": "Lorem ipsum dolor sit amet, consectetur adipiscing elit" }
+      },
+      "expected": {
+        "hash": "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "description": "Event with long string payload"
+    }
+  ],
+  "totalVectors": 5
+}

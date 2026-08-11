@@ -1,0 +1,179 @@
+{
+  "version": "1.0",
+  "profile": "ghostweave-profile-v1",
+  "generatedAt": "2026-06-29T10:00:00.000Z",
+  "description": "Canonical Event Suite for Certification Kit",
+  "genesisHash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "eventCount": 10,
+  "events": [
+    {
+      "id": "cert_genesis_001",
+      "timestamp": 1700000000000,
+      "type": "cert.genesis",
+      "source": "certification-kit",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "payload": {
+        "message": "Certification Kit Genesis",
+        "suite": "canonical"
+      },
+      "metadata": {
+        "version": "1.0.0",
+        "certification": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_001",
+      "timestamp": 1700000001000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 1,
+        "message": "Test event #1",
+        "data": "Canonical Event Suite verification"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_002",
+      "timestamp": 1700000002000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 2,
+        "message": "Test event #2",
+        "data": "Cross-implementation compatibility"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_003",
+      "timestamp": 1700000003000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 3,
+        "message": "Test event #3",
+        "data": "Verification suite validation"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_004",
+      "timestamp": 1700000004000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 4,
+        "message": "Test event #4",
+        "data": "Replay suite validation"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_005",
+      "timestamp": 1700000005000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 5,
+        "message": "Test event #5",
+        "data": "Negative test suite validation"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_006",
+      "timestamp": 1700000006000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 6,
+        "message": "Test event #6",
+        "data": "Cross-version compatibility"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_007",
+      "timestamp": 1700000007000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 7,
+        "message": "Test event #7",
+        "data": "Cross-implementation suite validation"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_008",
+      "timestamp": 1700000008000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 8,
+        "message": "Test event #8",
+        "data": "End-to-end certification flow"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    },
+    {
+      "id": "cert_event_009",
+      "timestamp": 1700000009000,
+      "type": "cert.test",
+      "source": "certification-kit",
+      "previous_hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+      "payload": {
+        "index": 9,
+        "message": "Test event #9",
+        "data": "Certification Kit validation complete"
+      },
+      "metadata": {
+        "suite": "canonical",
+        "test": true
+      },
+      "hash": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6"
+    }
+  ]
+}

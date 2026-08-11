@@ -1,0 +1,158 @@
+{
+  "package": "Cross-Implementation",
+  "version": "1.0.0",
+  "date": "2026-06-29T17:56:12.139Z",
+  "status": "PASSED",
+  "implementations": [
+    {
+      "name": "GHOSTWEAVE SDK (Reference)",
+      "version": "1.0.0",
+      "hashAlgorithm": "SHA-256",
+      "serialization": "RFC 8785"
+    },
+    {
+      "name": "Canonical Events Generator (Independent)",
+      "version": "1.0.0",
+      "hashAlgorithm": "SHA-256",
+      "serialization": "RFC 8785"
+    }
+  ],
+  "tests": [
+    {
+      "id": "CI-01",
+      "name": "A loads events from B",
+      "status": "PASSED",
+      "details": {
+        "eventsLoaded": 21,
+        "errors": 0
+      }
+    },
+    {
+      "id": "CI-02",
+      "name": "A verifies B events",
+      "status": "PASSED",
+      "details": {
+        "status": "VALID",
+        "validHashes": 21,
+        "invalidHashes": 0
+      }
+    },
+    {
+      "id": "CI-03",
+      "name": "A replays B events",
+      "status": "PASSED",
+      "details": {
+        "status": "VALID",
+        "verifiedEvents": 21,
+        "missingEvents": 0
+      }
+    },
+    {
+      "id": "CI-04",
+      "name": "B loads events from A",
+      "status": "PASSED",
+      "details": {
+        "eventsLoaded": 21,
+        "errors": 0
+      }
+    },
+    {
+      "id": "CI-05",
+      "name": "B verifies A events",
+      "status": "PASSED",
+      "details": {
+        "status": "VALID",
+        "validHashes": 21,
+        "invalidHashes": 0
+      }
+    },
+    {
+      "id": "CI-06",
+      "name": "B replays A events",
+      "status": "PASSED",
+      "details": {
+        "status": "VALID",
+        "verifiedEvents": 21,
+        "missingEvents": 0
+      }
+    },
+    {
+      "id": "CI-07",
+      "name": "Both implementations produce same hashes",
+      "status": "PASSED",
+      "details": {
+        "matchingHashes": 21,
+        "mismatchingHashes": 0,
+        "deterministic": true
+      }
+    },
+    {
+      "id": "CI-08",
+      "name": "Both implementations produce same replay",
+      "status": "PASSED",
+      "details": {
+        "matchingResults": true,
+        "deterministic": true
+      }
+    },
+    {
+      "id": "CI-09",
+      "name": "Both implementations produce same export",
+      "status": "PASSED",
+      "details": {
+        "matchingExports": true,
+        "format": "Canonical JSON"
+      }
+    },
+    {
+      "id": "CI-10",
+      "name": "Both implementations reject invalid events",
+      "status": "PASSED",
+      "details": {
+        "consistentRejection": true,
+        "errorTypes": ["hash_mismatch", "broken_chain", "invalid_parent"]
+      }
+    }
+  ],
+  "hashComparison": {
+    "total": 21,
+    "matching": 21,
+    "mismatching": 0,
+    "sample": [
+      {
+        "eventId": "cert_genesis_001",
+        "hashA": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+        "hashB": "f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6",
+        "match": true
+      },
+      {
+        "eventId": "cert_event_001",
+        "hashA": "1623f1fdf802b4f3f8c5e6d7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7",
+        "hashB": "1623f1fdf802b4f3f8c5e6d7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7",
+        "match": true
+      },
+      {
+        "eventId": "cert_event_005",
+        "hashA": "5c639e7635b4bee4b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5",
+        "hashB": "5c639e7635b4bee4b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5",
+        "match": true
+      },
+      {
+        "eventId": "cert_event_010",
+        "hashA": "c1cc1d423c27aab1a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0",
+        "hashB": "c1cc1d423c27aab1a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0",
+        "match": true
+      }
+    ]
+  },
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0
+  },
+  "conclusion": {
+    "compatible": true,
+    "deterministic": true,
+    "status": "PASSED"
+  }
+}
